@@ -20,4 +20,7 @@ def register_mobile(registration_id):
     user.registration_id = registration_id
     user.api_key = gen_api_key()
     user.put()
-    return "Registered device against Google account"
+    return """Registered device against Google account. Visit <a
+    href="https://doormon-server.appspot.com/key/">
+    https://doormon-server.appspot.com/key/</a> to retrieve the API key for the
+    Raspberry Pi."""
