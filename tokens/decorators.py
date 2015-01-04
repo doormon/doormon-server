@@ -9,6 +9,8 @@ def login_required(func):
 			return redirect(users.create_login_url(request.url))
 		return func(*args, **kwargs)
 	return decorated_view
+
+
 def admin_login_required(func):
 	@wraps(func)
 	def decorated_view(*args, **kwargs):
