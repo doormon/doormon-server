@@ -1,9 +1,13 @@
 from website import app
 from models import Config
 
+from google.appengine.api import users
+
 from flask import request, render_template
 
-from .decorators import admin_login_required
+from .decorators import admin_login_required, login_required
+
+from .models import User
 
 @app.route('/')
 def root():
@@ -21,3 +25,11 @@ def admin():
         config.api_key = api_key
         config.put()
     return render_template('admin/admin.html')
+
+
+@app.route('/test/', methods = [ 'GET' ])
+@login_required
+def test():
+    user = User.get_by_user(users.get_current_user())
+    api_key = user.api_key
+    return render_template('test/test.html', api_key=api_key)

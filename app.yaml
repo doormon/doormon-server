@@ -17,6 +17,9 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /js
+  static_dir: assets/js
+
 # Make robots.txt accessible at the root URL.
 - url: /robots.txt
   static_files: static/robots.txt
