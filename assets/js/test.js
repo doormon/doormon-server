@@ -6,7 +6,8 @@ $(document).ready(function() {
       data: {
         api_key: api_key,
         type: 'door',
-        state: 'open'
+        state: 'open',
+        video_uri: 'http://195.235.198.107:3346/axis-cgi/mjpg/video.cgi?resolution=320x240'
       },
       success: function(data) {
       }
@@ -19,7 +20,8 @@ $(document).ready(function() {
       data: {
         api_key: api_key,
         type: 'door',
-        state: 'closed'
+        state: 'closed',
+        video_uri: 'http://195.235.198.107:3346/axis-cgi/mjpg/video.cgi?resolution=320x240'
       },
       success: function(data) {
       }

@@ -37,6 +37,7 @@ def push_state():
         return jsonify(error='Invalid API key')
 
     state = request.form.get('state', 'invalid')
+    video_uri = request.form.get('video_uri', '')
 
     result = urlfetch.fetch(
             method=urlfetch.POST,
@@ -49,7 +50,8 @@ def push_state():
                 'registration_ids': [ user.registration_id ],
                 'data': {
                     'type': 'door',
-                    'state': state
+                    'state': state,
+                    'video_uri': video_uri
                     }
                 }))
 
