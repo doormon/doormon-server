@@ -33,3 +33,11 @@ def test():
     user = User.get_by_user(users.get_current_user())
     api_key = user.api_key
     return render_template('test/test.html', api_key=api_key)
+
+
+@app.route('/key/', methods = [ 'GET' ])
+@login_required
+def key():
+    user = User.get_by_user(users.get_current_user())
+    api_key = user.api_key
+    return render_template('key/key.html', api_key=api_key)
